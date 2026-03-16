@@ -28,7 +28,7 @@ class_names = [
 # Load trained model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("best_mobilenet_model.keras")
+    model = tf.keras.models.load_model("notebooks/best_mobilenet_model.keras")
     return model
 
 model = load_model()
@@ -48,10 +48,21 @@ def preprocess_image(image):
 # File uploader
 uploaded_file = st.file_uploader(
     "Upload an image",
-    type=["jpg","jpeg","png"]
+    type=["jpg","jpeg","png","webp"]
 
 )
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
-    
+    st.image(image, caption="Upload Image" , width="stretch")
+
+    processed_image = preprocess_image(image)
+
+    prediction = model.predict(processed_image)
+    predicted_index = np.argmax(prediction)
+    predicted_class = class_names[predicted_index]
+    confidence = float(np.max(prediction)) * 100
+
+    st.subheader("Prediction Result")
+    st.success(f"Predicted Animal: {predicted_class}")
+    st.info(f"Confidence: {confidence:.2f}%")
