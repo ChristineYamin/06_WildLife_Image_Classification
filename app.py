@@ -28,9 +28,11 @@ class_names = [
 # Load trained model
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("notebooks/best_mobilenet_model.keras")
+    url = "https://drive.google.com/uc?id=1-LVDmHjCIGp-_yrTtiPdBN9syLFhZw7_"
+    output = "best_mobilenet_model.keras"
+    gdown.download(url, output, quiet=False)
+    model = tf.keras.models.load_model(output)
     return model
-
 model = load_model()
 
 # Image preprocessing function
