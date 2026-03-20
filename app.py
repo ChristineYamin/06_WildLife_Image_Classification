@@ -3,6 +3,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import gdown
 
 #Page Config
 st.set_page_config(page_title="Wildlife Image Classifier" , page_icon="🐾")
