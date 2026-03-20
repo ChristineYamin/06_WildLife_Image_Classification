@@ -3,7 +3,7 @@
 This project builds an an advanced image classification system to identify wildlife species using Convolutional Neural network (CNN) and transfer learning (MobileNetV2) and also deploys using streamlit that users can upload the image and get the name of the species and also confidence scores.
 
 ## Objectives
-This project demonstrates real-world Ml workflow:
+This project demonstrates real-world Ml work
 - data preprocessing
 - Exploratory Data Analysis
 - Training the CNN model
@@ -51,7 +51,4 @@ For MobileNetV2: Higher accuracy ( accuracy almost 98%) Transfer learning signif
 - Deployment issues on Streamlit Cloud
 - Image format compatibility (.webp error)
 I faces these error but I passed these challenges.
-
-## 
-
 
